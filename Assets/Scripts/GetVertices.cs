@@ -1,5 +1,5 @@
 ﻿/*
- * TODO: Give an ID to each vertex.
+ * TODO: FIX THE BUG WITH THE VERTEX NOT MOVING
  * */
 
 using System.Collections;
@@ -31,6 +31,8 @@ public class GetVertices : MonoBehaviour {
     int LastVertexID;
 
 
+
+
     Vector3 destination = new Vector3(0f, 0f, 0);
     Vector3[] vertices;
 
@@ -39,14 +41,21 @@ public class GetVertices : MonoBehaviour {
     ArrayList ogVertices = new ArrayList();
 
     Vector3 foundVector;
-    int searchID;
     bool hasFound;
+
+    int searchID = -1;
+
+    //public List<int> symbol = new List<int>();
+    List<Vector4> VerticesWithIndex = new List<Vector4>();
+    List<int> indexList = new List<int>();
+
+
 
     //------------------------------------------------
 
-   
+
     // Use this for initialization
-    void Start () {
+    void Start() {
 
         hasFound = false;
         VertexID = 0;
@@ -56,7 +65,6 @@ public class GetVertices : MonoBehaviour {
         vertices = mesh.vertices;
 
         foundVector = new Vector3(0, 0, 0);
-        
 
 
         for (int i = 0; i < vertices.Length; i++)
@@ -74,12 +82,12 @@ public class GetVertices : MonoBehaviour {
             v.w = w;
 
             ogVertices.Add(copyCoordinate(v));
-            
+
         }
 
         GameObject gameController = GameObject.Find("GameController");
         ParseXML parseXML = gameController.GetComponent<ParseXML>();
-        
+
 
         for (int i = 0; i < ogVertices.Count; i++)
         {
@@ -90,7 +98,7 @@ public class GetVertices : MonoBehaviour {
             {
                 Vector4 v2 = parseXML.candideVertexList[j];
 
-                if(System.Math.Round(v1.x, 2) == System.Math.Round(v2.x, 2) && System.Math.Round(v1.y, 2) == System.Math.Round(v2.y, 2) && System.Math.Round(v1.z, 2) == System.Math.Round(v2.z, 2))
+                if (System.Math.Round(v1.x, 2) == System.Math.Round(v2.x, 2) && System.Math.Round(v1.y, 2) == System.Math.Round(v2.y, 2) && System.Math.Round(v1.z, 2) == System.Math.Round(v2.z, 2))
                 {
                     v1.w = v2.w;
                     break;
@@ -98,11 +106,22 @@ public class GetVertices : MonoBehaviour {
 
 
             }
+            
 
             ogVertices[i] = v1;
+            indexList.Add(Mathf.RoundToInt(v1.w));
 
         }
 
+        for (int i = 0; i < ogVertices.Count; i++)
+        {
+            Vector4 v;
+            v = (Vector4)ogVertices[i];
+            VerticesWithIndex.Add(v);
+        }
+
+
+        indexList.ToArray();
 
 
     }
@@ -110,48 +129,15 @@ public class GetVertices : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        
+        searchID = System.Array.IndexOf(indexList.ToArray(), VertexID);
 
 
-        if (hasFound == false)
-        {
-            for (int i = 0; i < ogVertices.Count; i++)
-            {
-                Vector4 v;
-                v = (Vector4)ogVertices[i];
-
-                if (VertexID == v.w)
-                {
-                    foundVector = v;
-                    searchID = System.Array.IndexOf(vertices, foundVector);
-                    hasFound = true;
-                    LastVertexID = VertexID;
-
-                    break;
-                }
-
-
-            }
-        }
-
-
-        if(LastVertexID!=VertexID)
-        {
-            hasFound = false;   
-        }
-
-        
         vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], destination, carne);
+
+
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
-
-        //Debug.Log(searchID);
-        Debug.Log(vertices[0]);
-
-        //Shit
-        
-        
 
     }
 
@@ -165,9 +151,7 @@ public class GetVertices : MonoBehaviour {
 
     Vector3 MoveVertexTo(Vector3 original, Vector3 goalPosition, float t)
     {
-        /*
-         * This is a test.
-         * */
+        
         Vector3 inital = original;
 
 
