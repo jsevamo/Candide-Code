@@ -208,7 +208,9 @@ public class GetVertices : MonoBehaviour {
 
         Debug.Log(tC.vector.x);*/
 
-        ReadString();
+
+        //Just in case I need to use the txt again
+        //ReadString();
 
 
     }
@@ -255,8 +257,13 @@ public class GetVertices : MonoBehaviour {
     {
         string path = "Assets/ArchivosTexto/test.txt";
         StreamReader reader = new StreamReader(path);
-        string hey = reader.ReadToEnd();
-        Debug.Log(hey.Split('/')[0]);
+
+        //Saving all the text 
+        string allAUs = reader.ReadToEnd();
+
+        //Spliting all the text by how many AUs there are.
+        Debug.Log("Cuantas unidades de acción hay? " + allAUs.Split('/').Length);
+        //Debug.Log("La unidad de acción 2 es: " + allAUs.Split('/')[0]);
 
 
         /*string[] lines = System.IO.File.ReadAllLines(path);
