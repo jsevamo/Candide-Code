@@ -9,7 +9,8 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
-
+using System.IO;
+using UnityEngine.UI;
 
 /**
 * This is a class that is used to manage the vertices of any given mesh.
@@ -23,9 +24,36 @@ using UnityEngine;
 * 
 *
 */
+[System.Serializable]
+public class testClass
+{
+    public int attack;
+    public float x;
+    public float y;
+    public float z;
+    public Vector3 vector;
+
+
+
+
+
+    public testClass()
+    {
+
+    }
+
+    public void turnToVector()
+    {
+        vector = new Vector3(x, y, z);
+    }
+
+}
+
 public class GetVertices : MonoBehaviour {
 
     int choose = 0;
+
+    public Text textoPrueba;
 
     [Range(0, 1)]
     /**
@@ -85,6 +113,11 @@ public class GetVertices : MonoBehaviour {
     */
     [HideInInspector]
     public List<int> indexList = new List<int>();
+
+
+
+    public List<int> VertexIDList = new List<int>();
+    public List<Vector3> VertexDestinationList = new List<Vector3>();
 
 
 
@@ -159,6 +192,24 @@ public class GetVertices : MonoBehaviour {
 
         indexList.ToArray();
 
+        //-----Testing json
+
+        /*TextAsset textAsset = (TextAsset)Resources.Load("Test"); 
+        string jsonString = textAsset.text;
+
+        testClass tC = new testClass();
+        JsonUtility.FromJsonOverwrite(jsonString, tC);
+
+        Debug.Log(tC.x);
+        Debug.Log(tC.y);
+        Debug.Log(tC.z);
+
+        tC.turnToVector();
+
+        Debug.Log(tC.vector.x);*/
+
+        ReadString();
+
 
     }
 
@@ -200,5 +251,20 @@ public class GetVertices : MonoBehaviour {
     }
 
 
-    
+    public void ReadString()
+    {
+        string path = "Assets/ArchivosTexto/test.txt";
+        StreamReader reader = new StreamReader(path);
+        string hey = reader.ReadToEnd();
+        Debug.Log(hey.Split('/')[0]);
+
+
+        /*string[] lines = System.IO.File.ReadAllLines(path);
+        Debug.Log(lines[0].Split(',')[1]);*/
+
+        reader.Close();
+    }
+
+
+
 }
