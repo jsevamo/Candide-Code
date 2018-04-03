@@ -10,31 +10,57 @@ using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
 
-public class Vertices
-{
-    public Vector3[] vertices;
-    public ArrayList ogVertices = new ArrayList();
 
-    public Vertices(Vector3[] newVertices, ArrayList newOgVertices)
-    {
-        vertices = newVertices;
-        ogVertices = newOgVertices;
-    }
-}
-
+/**
+* This is a class that is used to manage the vertices of any given mesh.
+* How it works:
+* 1. First it gets all of the vertices of the mesh and stores them in the vertices array.
+* 2. It connects with the ParseXML class to get the vertex order and ID of the vertices in the XML.
+* 3. It saves the Vertex that come from ParseXML to the "VerticesWithIndex" list.
+* 4. It saves the ID corresponding to each vertex to the "indexList" list.
+* 5. It searches through the "indexList" for a coincidence on the ID of the vertices in the "VerticesWithIndex" list.
+* 6. If it finds a coincidence, "searchID" is changed for the index it finds and moves the vertex in vertices[searchID] with MoveVertexTo().
+* 
+*
+*/
 public class GetVertices : MonoBehaviour {
 
-    //let's move (-0.5, -0.5, 0) to (-0.5, 0.5, 0)
+    int choose = 0;
+
     [Range(0, 1)]
-    public float carne;
+    /**
+    * This is a variable that the user or the computer can control. It's the key for the 
+    * parametrization of the line used to move a vertex from point A to point B.
+    * It's used here: L = (1-t)*A + t*B
+    * Where: 
+    * - A is the starting point on 3D space.
+    * - B is the ending point on 3D space.
+    * 
+    * When t = 0, L = A, which means the vertex remains at it's original point.
+    * When t = 1, L = B, which means the vertex moves to it's ending point.
+    * t can also take any other value in between 0 and 1 to move the vertex to that corresponding position.
+    */
+    public float t;
+
+    /**
+    * This is a variable the user or the computer can control. It let's us choose which 
+    * vertex we want to move with the parametrization.
+    */
     public int VertexID;
-    int LastVertexID;
 
 
 
 
     Vector3 destination = new Vector3(0f, 0f, 0);
-    Vector3[] vertices;
+
+    /**
+    * This is the array of vertices that unity saves with it's built in GetComponent<MeshFilter>().mesh.vertices function.
+    * Unfortunately, Unity saves the vertices in a very different order that what it's required by the project, so 
+    * this only serves us to make a comparison with VerticesWithIndex later to find matches and get the corresponding
+    * index.
+    */
+    [HideInInspector]
+    public Vector3[] vertices;
 
 
     Mesh mesh;
@@ -43,11 +69,22 @@ public class GetVertices : MonoBehaviour {
     Vector3 foundVector;
     bool hasFound;
 
-    int searchID = -1;
+    /**
+    * This is a test.
+    */
+    [HideInInspector]
+    public int searchID = -1;
 
-    //public List<int> symbol = new List<int>();
-    List<Vector4> VerticesWithIndex = new List<Vector4>();
-    List<int> indexList = new List<int>();
+    /**
+    * This is a test.
+    */
+    [HideInInspector]
+    public List<Vector4> VerticesWithIndex = new List<Vector4>();
+    /**
+    * This is a test.
+    */
+    [HideInInspector]
+    public List<int> indexList = new List<int>();
 
 
 
@@ -59,7 +96,6 @@ public class GetVertices : MonoBehaviour {
 
         hasFound = false;
         VertexID = 0;
-        LastVertexID = VertexID;
 
         mesh = GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
@@ -131,10 +167,8 @@ public class GetVertices : MonoBehaviour {
 
         searchID = System.Array.IndexOf(indexList.ToArray(), VertexID);
 
-
-        vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], destination, carne);
-
-
+        vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], destination, t);
+        
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
@@ -148,8 +182,10 @@ public class GetVertices : MonoBehaviour {
         return copy;
     }
 
-
-    Vector3 MoveVertexTo(Vector3 original, Vector3 goalPosition, float t)
+    /**
+    * This is a test.
+    */
+    public Vector3 MoveVertexTo(Vector3 original, Vector3 goalPosition, float t)
     {
         
         Vector3 inital = original;

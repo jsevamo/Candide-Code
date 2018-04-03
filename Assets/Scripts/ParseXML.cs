@@ -18,7 +18,7 @@ public class ParseXML : MonoBehaviour {
 
         amountOfVertex = 0;
 
-        candideVertexDic = parseFile();
+        candideVertexDic = parseVertices();
         dictionary = candideVertexDic[1];
         /*Debug.Log(dictionary["x"]);
         Debug.Log(dictionary["y"]);
@@ -42,9 +42,9 @@ public class ParseXML : MonoBehaviour {
 
     }
 
-    public List<Dictionary<string, string>> parseFile()
+    public List<Dictionary<string, string>> parseVertices()
     {
-        TextAsset txtXmlAsset = Resources.Load<TextAsset>("plano");
+        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVertices");
         var doc = XDocument.Parse(txtXmlAsset.text);
 
         var allDict = doc.Element("document").Elements("Vertex");
