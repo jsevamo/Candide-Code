@@ -1,0 +1,50 @@
+<document>
+ <MESH>
+ <Vertex>
+  <v>-0.5</v>
+  <v>-0.5</v>
+  <v>0</v>
+  <i>0</i>
+ </Vertex>
+ 
+ <Vertex>
+  <v>0.5</v>
+  <v>0.5</v>
+  <v>0</v>
+  <i>1</i>
+ </Vertex>
+ 
+ <Vertex>
+  <v>0.5</v>
+  <v>-0.5</v>
+  <v>0</v>
+  <i>2</i>
+ </Vertex>
+ 
+ <Vertex>
+  <v>-0.5</v>
+  <v>0.5</v>
+  <v>0</v>
+  <i>3</i>
+ </Vertex>
+ </MESH>
+
+ <AU>
+  <Vertex>
+  <v>0.5</v>
+  <v>-0.5</v>
+  <v>0</v>
+  <i>0</i>
+ </Vertex>
+
+<Vertex>
+  <v>0.5</v>
+  <v>-0.5</v>
+  <v>0</v>
+  <i>1</i>
+ </Vertex>
+
+ 
+ </AU>
+ 
+</document>
