@@ -4,28 +4,28 @@
 		  <v>-0.5</v>
 		  <v>-0.5</v>
 		  <v>0</v>
-		  <v>0</v>
+		  <id>0</id>
 		 </Vertex>
 		 
 		 <Vertex>
 		  <v>0.5</v>
 		  <v>0.5</v>
 		  <v>0</v>
-		  <v>1</v>
+		  <id>1</id>
 		 </Vertex>
 		 
 		 <Vertex>
 		  <v>0.5</v>
 		  <v>-0.5</v>
 		  <v>0</v>
-		  <v>2</v>
+		  <id>2</id>
 		 </Vertex>
 		 
 		 <Vertex>
 		  <v>-0.5</v>
 		  <v>0.5</v>
 		  <v>0</v>
-		  <v>3</v>
+		  <id>3</id>
 		 </Vertex>
 	 </Mesh>
  
@@ -34,15 +34,52 @@
 			<v>-1</v>
 			<v>-1</v>
 			<v>0</v>
-			<v>0</v>
+			<id>3</id>
 		</Vertex>
 		
 		<Vertex>
 			<v>1</v>
 			<v>1</v>
 			<v>0</v>
-			<v>0</v>
+			<id>1</id>
 		</Vertex>
+	</Au>
+	
+	<Au>
+		<Vertex>
+			<v>-2</v>
+			<v>-2</v>
+			<v>0</v>
+			<id>0</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>2</v>
+			<v>2</v>
+			<v>0</v>
+			<id>1</id>
+		</Vertex>
+		
+	</Au>
+	
+	<Au>
+		<Vertex>
+			<v>-50</v>
+			<v>-1</v>
+			<v>0</v>
+			<id>0</id>
+		</Vertex>
+		
+	</Au>
+	
+	<Au>
+		<Vertex>
+			<v>-50</v>
+			<v>-1</v>
+			<v>0</v>
+			<id>0</id>
+		</Vertex>
+		
 	</Au>
  
 </document>
