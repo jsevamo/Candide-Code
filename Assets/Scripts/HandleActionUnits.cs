@@ -20,14 +20,14 @@ using System;
  * */
 
 [System.Serializable]
-public class ActionUnit
+public class AU
 {
     //This is the comment of the class of action units
 
     public string ID;
     public float influence;
 
-    public ActionUnit(string newId, float newInfluence)
+    public AU(string newId, float newInfluence)
     {
         ID = newId;
         influence = newInfluence;
@@ -52,7 +52,7 @@ public class HandleActionUnits : MonoBehaviour {
     //public float au2;
 
 
-    public List<ActionUnit> ActionUnitsList = new List<ActionUnit>();
+    public List<AU> ActionUnitsList = new List<AU>();
 
 
     // Use this for initialization
@@ -69,7 +69,7 @@ public class HandleActionUnits : MonoBehaviour {
 
         for (int i = 0; i < blendShapeCount; i++)
         {
-            ActionUnitsList.Add(new ActionUnit("AU" + (i+1).ToString(), 0f));
+            ActionUnitsList.Add(new AU("AU" + (i+1).ToString(), 0f));
         }
 
     }
@@ -77,7 +77,7 @@ public class HandleActionUnits : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        foreach (ActionUnit AU in ActionUnitsList)
+        foreach (AU AU in ActionUnitsList)
         {
 
            if(AU.getInfluence()<0)

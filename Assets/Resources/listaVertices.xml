@@ -31,66 +31,46 @@
  
 	<Au>
 		<Vertex>
+			<v>-1</v>
+			<v>-1</v>
+			<v>0</v>
+			<id>0</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>1</v>
+			<v>1</v>
+			<v>0</v>
+			<id>1</id>
+		</Vertex>
+		
+		<Vertex>
 			<v>1</v>
 			<v>-1</v>
 			<v>0</v>
-			<id>50</id>
+			<id>2</id>
 		</Vertex>
 		
 		<Vertex>
-			<v>2</v>
+			<v>-1</v>
 			<v>1</v>
 			<v>0</v>
-			<id>51</id>
-		</Vertex>
-	</Au>
-	
-	<Au>
-		<Vertex>
-			<v>3</v>
-			<v>-2</v>
-			<v>0</v>
-			<id>52</id>
-		</Vertex>
-		
-		<Vertex>
-			<v>4</v>
-			<v>2</v>
-			<v>0</v>
-			<id>53</id>
+			<id>3</id>
 		</Vertex>
 		
 	</Au>
 	
 	<Au>
-		<Vertex>
-			<v>5</v>
-			<v>-1</v>
+	
+	<Vertex>
 			<v>0</v>
-			<id>54</id>
+			<v>0</v>
+			<v>0</v>
+			<id>3</id>
 		</Vertex>
-		
 	</Au>
 	
-	<Au>
-		<Vertex>
-			<v>6</v>
-			<v>-1</v>
-			<v>0</v>
-			<id>55</id>
-		</Vertex>
-		
-	</Au>
 	
-	<Au>
-		<Vertex>
-			<v>7</v>
-			<v>-1</v>
-			<v>0</v>
-			<id>56</id>
-		</Vertex>
-		
-	</Au>
 	
 
  

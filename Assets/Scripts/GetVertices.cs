@@ -24,36 +24,12 @@ using UnityEngine.UI;
 * 
 *
 */
-[System.Serializable]
-public class testClass
-{
-    public int attack;
-    public float x;
-    public float y;
-    public float z;
-    public Vector3 vector;
-
-
-
-
-
-    public testClass()
-    {
-
-    }
-
-    public void turnToVector()
-    {
-        vector = new Vector3(x, y, z);
-    }
-
-}
 
 public class GetVertices : MonoBehaviour {
 
     int choose = 0;
 
-    public Text textoPrueba;
+    //public Text textoPrueba;
 
     [Range(0, 1)]
     /**
@@ -74,9 +50,7 @@ public class GetVertices : MonoBehaviour {
     * This is a variable the user or the computer can control. It let's us choose which 
     * vertex we want to move with the parametrization.
     */
-    public int VertexID;
-
-
+    public int AuID;
 
 
     Vector3 destination = new Vector3(0f, 0f, 0);
@@ -116,9 +90,11 @@ public class GetVertices : MonoBehaviour {
 
 
 
-    public List<int> VertexIDList = new List<int>();
-    public List<Vector3> VertexDestinationList = new List<Vector3>();
+    //public List<int> VertexIDList = new List<int>();
+    //public List<Vector3> VertexDestinationList = new List<Vector3>();
 
+
+    public List<ActionUnit> ActionUnitList = new List<ActionUnit>();
 
 
     //------------------------------------------------
@@ -128,7 +104,7 @@ public class GetVertices : MonoBehaviour {
     void Start() {
 
         hasFound = false;
-        VertexID = 0;
+        AuID = 0;
 
         mesh = GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
@@ -192,37 +168,28 @@ public class GetVertices : MonoBehaviour {
 
         indexList.ToArray();
 
-        //-----Testing json
-
-        /*TextAsset textAsset = (TextAsset)Resources.Load("Test"); 
-        string jsonString = textAsset.text;
-
-        testClass tC = new testClass();
-        JsonUtility.FromJsonOverwrite(jsonString, tC);
-
-        Debug.Log(tC.x);
-        Debug.Log(tC.y);
-        Debug.Log(tC.z);
-
-        tC.turnToVector();
-
-        Debug.Log(tC.vector.x);*/
-
-
-        //Just in case I need to use the txt again
-        //ReadString();
-
+        ActionUnitList = parseXML.auList;
+        //Debug.Log(ActionUnitList[0].Count());
 
     }
 
     // Update is called once per frame
     void Update() {
 
-        searchID = System.Array.IndexOf(indexList.ToArray(), VertexID);
+        //searchID = System.Array.IndexOf(indexList.ToArray(), VertexID);
+        //vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], destination, t);
 
-        vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], destination, t);
-        
+        //Debug.Log(ActionUnitList.Count);
 
+       
+        for(int j = 0; j < ActionUnitList[AuID].Count(); j++)
+        {
+            searchID = System.Array.IndexOf(indexList.ToArray(), ActionUnitList[AuID].GetId(j));
+            vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], ActionUnitList[AuID].GetDestination(j), t);
+            //Debug.Log(searchID);
+        }
+
+  
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
 

@@ -4,19 +4,22 @@ using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
 
-public class ActionUnitCode
+[System.Serializable]
+public class ActionUnit
 {
-    private List<int> idList;
-    private List<Vector3> destinationList;
+    [SerializeField]
+    List<int> idList;
+    [SerializeField]
+    List<Vector3> destinationList;
 
-    public ActionUnitCode()
+    public ActionUnit()
     {
         idList = new List<int>();
         destinationList = new List<Vector3>();
     }
 
 
-    public ActionUnitCode(List<int> newIDList, List<Vector3> newDestinationList)
+    public ActionUnit(List<int> newIDList, List<Vector3> newDestinationList)
     {
         idList = newIDList;
         destinationList = newDestinationList;
@@ -27,7 +30,7 @@ public class ActionUnitCode
         return idList[index];
     }
 
-    public Vector3 GetVertex(int index)
+    public Vector3 GetDestination(int index)
     {
         return destinationList[index];
     }
@@ -37,7 +40,7 @@ public class ActionUnitCode
         idList[index] = pID;
     }
 
-    public void SetVertex(int index, Vector3 pVertex)
+    public void SetDestination(int index, Vector3 pVertex)
     {
         destinationList[index] = pVertex;
     }
@@ -46,6 +49,13 @@ public class ActionUnitCode
     {
         idList.Add(pID);
         destinationList.Add(pVertex);
+    }
+
+    public int Count()
+    {
+        int count;
+        count = idList.Count();
+        return count;
     }
 }
 
@@ -64,11 +74,8 @@ public class ParseXML : MonoBehaviour {
     public List<Vector3> destinationList = new List<Vector3>();
     public List<int> ids = new List<int>();
 
-    public List<List<int>> idList = new List<List<int>>();
-
-
-    public List<ActionUnitCode> ActionUnitList = new List<ActionUnitCode>();
-    int iterator = 0;
+    //public List<List<int>> idList = new List<List<int>>();
+    public List<ActionUnit> auList = new List<ActionUnit>();
 
     // Use this for initialization
     void Start () {
@@ -150,25 +157,17 @@ public class ParseXML : MonoBehaviour {
 
         var allDict = doc.Element("document").Elements("Au");
         List<Dictionary<string, string>> allTextDic = new List<Dictionary<string, string>>();
-        List<ActionUnitCode> auList = new List<ActionUnitCode>();
+        
 
         foreach (var oneDict in allDict)
-        {
-            ActionUnitCode newActionUnitCode = new ActionUnitCode();
+        { 
+            ActionUnit newActionUnit = new ActionUnit();
             var auCount = oneDict.Elements("Vertex");
-            //Debug.Log(auCount.ElementAt(0));
-
-
-            //Debug.Log(auCount.Count());
 
             for (int i = 0; i < auCount.Count(); i++)
             {
-                /*var a = twoStrings.ElementAt(i).Elements("v");
-                Debug.Log(a.ElementAt(0));*/
 
                 var twoStringsVertex = auCount.ElementAt(i).Elements("v");
-                //Debug.Log(twoStringsVertex.ElementAt(0));
-
                 var twoStringsVertex2 = auCount.ElementAt(i).Elements("id");
 
                 XElement element1 = twoStringsVertex.ElementAt(0);
@@ -181,75 +180,16 @@ public class ParseXML : MonoBehaviour {
                 string third = element3.ToString().Replace("<v>", "").Replace("</v>", "");
                 string fourth = element4.ToString().Replace("<id>", "").Replace("</id>", "");
 
-                //Debug.Log(first);
-
                 Vector3 moveTo = new Vector3(float.Parse(first), float.Parse(second), float.Parse(third));
 
-                newActionUnitCode.Add(int.Parse(fourth),moveTo);
-                //Debug.Log(moveTo)
+                newActionUnit.Add(int.Parse(fourth),moveTo);
 
             }
 
-            auList.Add(newActionUnitCode);
-            idList.Add(ids);
-
-
-            /*while(iterator < auCount.Count())
-            {
-                
-
-                iterator++;
-
-                if(iterator==auCount.Count())
-                {
-                    iterator = 0;
-                }
-            }*/
-
-            //Debug.Log(auCount.Count());
-            //ActionUnitList.Add(new ActionUnitCode(idList, destinationList));
-
-
-            /*var twoStringsVertex = twoStrings.ElementAt(0).Elements("v");
-            //Debug.Log(twoStringsVertex.ElementAt(0));
-
-            var twoStringsVertex2 = twoStrings.Elements("id");
-
-            XElement element1 = twoStringsVertex.ElementAt(0);
-            XElement element2 = twoStringsVertex.ElementAt(1);
-            XElement element3 = twoStringsVertex.ElementAt(2);
-            XElement element4 = twoStringsVertex2.ElementAt(0);
-
-            string first = element1.ToString().Replace("<v>", "").Replace("</v>", "");
-            string second = element2.ToString().Replace("<v>", "").Replace("</v>", "");
-            string third = element3.ToString().Replace("<v>", "").Replace("</v>", "");
-            string fourth = element4.ToString().Replace("<id>", "").Replace("</id>", "");*/
-
-            //Debug.Log(first);
-
-
-            //Vector3 moveTo = new Vector3(float.Parse(first), float.Parse(second), float.Parse(third));
-
-            /*destinationList.Add(moveTo);
-            idList.Add(int.Parse(fourth));*/
-
+            auList.Add(newActionUnit);
         }
 
-
-        /*Debug.Log(destinationList[1] + " " + idList[1]);
-        Debug.Log(destinationList.Count);*/
-
-        for (int i = 0; i < destinationList.Count; i++)
-        {
-            //Debug.Log(destinationList[i]);
-            //Debug.Log(ids[i]);
-        }
-
-        //Debug.Log(auList[0].GetVertex(0));
-        Debug.Log(auList[4].GetId(0));
-
-        //Debug.Log(ActionUnitList[1].idList[i]);
-
+        //Debug.Log(auList[4].GetId(0));
 
 
     }
