@@ -312,7 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ArchivosTexto\test.txt" />
+    <None Include="Assets\ArchivosTexto\xml TEST.xml" />
     <None Include="Assets\Resources\VertexFile.xml" />
+    <None Include="Assets\Resources\listaAUs.xml" />
     <None Include="Assets\Resources\listaVertices.xml" />
     <None Include="Assets\Resources\plano.xml" />
   </ItemGroup>

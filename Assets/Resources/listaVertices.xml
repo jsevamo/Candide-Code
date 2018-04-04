@@ -1,31 +1,49 @@
 <document>
- <Vertex>
-  <v>-0.5</v>
-  <v>-0.5</v>
-  <v>0</v>
-  <v>0</v>
- </Vertex>
+	<Mesh>
+		 <Vertex>
+		  <v>-0.5</v>
+		  <v>-0.5</v>
+		  <v>0</v>
+		  <v>0</v>
+		 </Vertex>
+		 
+		 <Vertex>
+		  <v>0.5</v>
+		  <v>0.5</v>
+		  <v>0</v>
+		  <v>1</v>
+		 </Vertex>
+		 
+		 <Vertex>
+		  <v>0.5</v>
+		  <v>-0.5</v>
+		  <v>0</v>
+		  <v>2</v>
+		 </Vertex>
+		 
+		 <Vertex>
+		  <v>-0.5</v>
+		  <v>0.5</v>
+		  <v>0</v>
+		  <v>3</v>
+		 </Vertex>
+	 </Mesh>
  
- <Vertex>
-  <v>0.5</v>
-  <v>0.5</v>
-  <v>0</v>
-  <v>1</v>
- </Vertex>
- 
- <Vertex>
-  <v>0.5</v>
-  <v>-0.5</v>
-  <v>0</v>
-  <v>2</v>
- </Vertex>
- 
- <Vertex>
-  <v>-0.5</v>
-  <v>0.5</v>
-  <v>0</v>
-  <v>3</v>
- </Vertex>
+	<Au>
+		<Vertex>
+			<v>-1</v>
+			<v>-1</v>
+			<v>0</v>
+			<v>0</v>
+		</Vertex>
+		
+		<Vertex>
+			<v>1</v>
+			<v>1</v>
+			<v>0</v>
+			<v>0</v>
+		</Vertex>
+	</Au>
  
 </document>
 
