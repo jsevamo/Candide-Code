@@ -6,8 +6,15 @@ using UnityEngine;
 
 public class ActionUnitCode
 {
-    public List<int> idList;
-    public List<Vector3> destinationList;
+    private List<int> idList;
+    private List<Vector3> destinationList;
+
+    public ActionUnitCode()
+    {
+        idList = new List<int>();
+        destinationList = new List<Vector3>();
+    }
+
 
     public ActionUnitCode(List<int> newIDList, List<Vector3> newDestinationList)
     {
@@ -15,6 +22,31 @@ public class ActionUnitCode
         destinationList = newDestinationList;
     }
 
+    public int GetId(int index)
+    {
+        return idList[index];
+    }
+
+    public Vector3 GetVertex(int index)
+    {
+        return destinationList[index];
+    }
+
+    public void SetId(int index, int pID)
+    {
+        idList[index] = pID;
+    }
+
+    public void SetVertex(int index, Vector3 pVertex)
+    {
+        destinationList[index] = pVertex;
+    }
+
+    public void Add(int pID, Vector3 pVertex )
+    {
+        idList.Add(pID);
+        destinationList.Add(pVertex);
+    }
 }
 
 
@@ -30,8 +62,13 @@ public class ParseXML : MonoBehaviour {
 
 
     public List<Vector3> destinationList = new List<Vector3>();
-    public List<int> idList = new List<int>();
+    public List<int> ids = new List<int>();
+
+    public List<List<int>> idList = new List<List<int>>();
+
+
     public List<ActionUnitCode> ActionUnitList = new List<ActionUnitCode>();
+    int iterator = 0;
 
     // Use this for initialization
     void Start () {
@@ -76,6 +113,7 @@ public class ParseXML : MonoBehaviour {
 
         var allDict = doc.Element("document").Elements("Mesh").Elements("Vertex");
         List<Dictionary<string, string>> allTextDic = new List<Dictionary<string, string>>();
+
         foreach (var oneDict in allDict)
         {
             var twoStrings = oneDict.Elements("v");
@@ -112,16 +150,16 @@ public class ParseXML : MonoBehaviour {
 
         var allDict = doc.Element("document").Elements("Au");
         List<Dictionary<string, string>> allTextDic = new List<Dictionary<string, string>>();
-
+        List<ActionUnitCode> auList = new List<ActionUnitCode>();
 
         foreach (var oneDict in allDict)
         {
+            ActionUnitCode newActionUnitCode = new ActionUnitCode();
             var auCount = oneDict.Elements("Vertex");
             //Debug.Log(auCount.ElementAt(0));
 
 
             //Debug.Log(auCount.Count());
-            int iterator = 0;
 
             for (int i = 0; i < auCount.Count(); i++)
             {
@@ -146,17 +184,30 @@ public class ParseXML : MonoBehaviour {
                 //Debug.Log(first);
 
                 Vector3 moveTo = new Vector3(float.Parse(first), float.Parse(second), float.Parse(third));
-                
-                //Debug.Log(moveTo);
 
-                destinationList.Add(moveTo);
-                //idList.Add(int.Parse(fourth));
-
-                Debug.Log(fourth);
-
-
+                newActionUnitCode.Add(int.Parse(fourth),moveTo);
+                //Debug.Log(moveTo)
 
             }
+
+            auList.Add(newActionUnitCode);
+            idList.Add(ids);
+
+
+            /*while(iterator < auCount.Count())
+            {
+                
+
+                iterator++;
+
+                if(iterator==auCount.Count())
+                {
+                    iterator = 0;
+                }
+            }*/
+
+            //Debug.Log(auCount.Count());
+            //ActionUnitList.Add(new ActionUnitCode(idList, destinationList));
 
 
             /*var twoStringsVertex = twoStrings.ElementAt(0).Elements("v");
@@ -188,11 +239,16 @@ public class ParseXML : MonoBehaviour {
         /*Debug.Log(destinationList[1] + " " + idList[1]);
         Debug.Log(destinationList.Count);*/
 
-        for(int i = 0; i < destinationList.Count; i++)
+        for (int i = 0; i < destinationList.Count; i++)
         {
             //Debug.Log(destinationList[i]);
-            //Debug.Log(idList[i]);
+            //Debug.Log(ids[i]);
         }
+
+        //Debug.Log(auList[0].GetVertex(0));
+        Debug.Log(auList[4].GetId(0));
+
+        //Debug.Log(ActionUnitList[1].idList[i]);
 
 
 
