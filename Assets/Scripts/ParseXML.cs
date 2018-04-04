@@ -4,6 +4,19 @@ using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
 
+public class ActionUnitCode
+{
+    public List<int> idList;
+    public List<Vector3> destinationList;
+
+    public ActionUnitCode(List<int> newIDList, List<Vector3> newDestinationList)
+    {
+        idList = newIDList;
+        destinationList = newDestinationList;
+    }
+
+}
+
 
 
 public class ParseXML : MonoBehaviour {
@@ -18,6 +31,7 @@ public class ParseXML : MonoBehaviour {
 
     public List<Vector3> destinationList = new List<Vector3>();
     public List<int> idList = new List<int>();
+    public List<ActionUnitCode> ActionUnitList = new List<ActionUnitCode>();
 
     // Use this for initialization
     void Start () {
@@ -102,12 +116,50 @@ public class ParseXML : MonoBehaviour {
 
         foreach (var oneDict in allDict)
         {
-            var twoStrings = oneDict.Elements("Vertex");
-            //Debug.Log(twoStrings.ElementAt(0));
+            var auCount = oneDict.Elements("Vertex");
+            //Debug.Log(auCount.ElementAt(0));
 
-            Debug.Log(twoStrings.Count());
 
-            var twoStringsVertex = twoStrings.ElementAt(0).Elements("v");
+            //Debug.Log(auCount.Count());
+            int iterator = 0;
+
+            for (int i = 0; i < auCount.Count(); i++)
+            {
+                /*var a = twoStrings.ElementAt(i).Elements("v");
+                Debug.Log(a.ElementAt(0));*/
+
+                var twoStringsVertex = auCount.ElementAt(i).Elements("v");
+                //Debug.Log(twoStringsVertex.ElementAt(0));
+
+                var twoStringsVertex2 = auCount.ElementAt(i).Elements("id");
+
+                XElement element1 = twoStringsVertex.ElementAt(0);
+                XElement element2 = twoStringsVertex.ElementAt(1);
+                XElement element3 = twoStringsVertex.ElementAt(2);
+                XElement element4 = twoStringsVertex2.ElementAt(0);
+
+                string first = element1.ToString().Replace("<v>", "").Replace("</v>", "");
+                string second = element2.ToString().Replace("<v>", "").Replace("</v>", "");
+                string third = element3.ToString().Replace("<v>", "").Replace("</v>", "");
+                string fourth = element4.ToString().Replace("<id>", "").Replace("</id>", "");
+
+                //Debug.Log(first);
+
+                Vector3 moveTo = new Vector3(float.Parse(first), float.Parse(second), float.Parse(third));
+                
+                //Debug.Log(moveTo);
+
+                destinationList.Add(moveTo);
+                //idList.Add(int.Parse(fourth));
+
+                Debug.Log(fourth);
+
+
+
+            }
+
+
+            /*var twoStringsVertex = twoStrings.ElementAt(0).Elements("v");
             //Debug.Log(twoStringsVertex.ElementAt(0));
 
             var twoStringsVertex2 = twoStrings.Elements("id");
@@ -120,12 +172,12 @@ public class ParseXML : MonoBehaviour {
             string first = element1.ToString().Replace("<v>", "").Replace("</v>", "");
             string second = element2.ToString().Replace("<v>", "").Replace("</v>", "");
             string third = element3.ToString().Replace("<v>", "").Replace("</v>", "");
-            string fourth = element4.ToString().Replace("<id>", "").Replace("</id>", "");
+            string fourth = element4.ToString().Replace("<id>", "").Replace("</id>", "");*/
 
             //Debug.Log(first);
 
 
-            Vector3 moveTo = new Vector3(float.Parse(first), float.Parse(second), float.Parse(third));
+            //Vector3 moveTo = new Vector3(float.Parse(first), float.Parse(second), float.Parse(third));
 
             /*destinationList.Add(moveTo);
             idList.Add(int.Parse(fourth));*/
@@ -135,6 +187,14 @@ public class ParseXML : MonoBehaviour {
 
         /*Debug.Log(destinationList[1] + " " + idList[1]);
         Debug.Log(destinationList.Count);*/
+
+        for(int i = 0; i < destinationList.Count; i++)
+        {
+            //Debug.Log(destinationList[i]);
+            //Debug.Log(idList[i]);
+        }
+
+
 
     }
 
