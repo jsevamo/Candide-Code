@@ -31,14 +31,14 @@
  
 	<Au>
 		<Vertex>
-			<v>-1</v>
+			<v>1</v>
 			<v>-1</v>
 			<v>0</v>
 			<id>3</id>
 		</Vertex>
 		
 		<Vertex>
-			<v>1</v>
+			<v>2</v>
 			<v>1</v>
 			<v>0</v>
 			<id>1</id>
@@ -47,14 +47,14 @@
 	
 	<Au>
 		<Vertex>
-			<v>-2</v>
+			<v>3</v>
 			<v>-2</v>
 			<v>0</v>
 			<id>0</id>
 		</Vertex>
 		
 		<Vertex>
-			<v>2</v>
+			<v>4</v>
 			<v>2</v>
 			<v>0</v>
 			<id>1</id>
@@ -64,7 +64,7 @@
 	
 	<Au>
 		<Vertex>
-			<v>-50</v>
+			<v>5</v>
 			<v>-1</v>
 			<v>0</v>
 			<id>0</id>
@@ -74,13 +74,15 @@
 	
 	<Au>
 		<Vertex>
-			<v>-50</v>
+			<v>6</v>
 			<v>-1</v>
 			<v>0</v>
 			<id>0</id>
 		</Vertex>
 		
 	</Au>
+	
+
  
 </document>
 
