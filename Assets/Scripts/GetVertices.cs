@@ -25,7 +25,16 @@ using UnityEngine.UI;
 *
 */
 
+public class UnityVertexMatch
+{
+    //int CadideID;
+    List<int> UnityVertex;
+};
+
+
 public class GetVertices : MonoBehaviour {
+
+
 
     int choose = 0;
 
@@ -99,6 +108,8 @@ public class GetVertices : MonoBehaviour {
 
     //------------------------------------------------
 
+    int indiceEncontrado = -1;
+
 
     // Use this for initialization
     void Start() {
@@ -129,6 +140,26 @@ public class GetVertices : MonoBehaviour {
             ogVertices.Add(copyCoordinate(v));
 
         }
+
+
+
+        Vector3 test = new Vector3(-146f, 130f, 20f);//vertices[0]; /
+        Vector3 test2 = new Vector3(-105f, 215f, 20f);
+
+        Debug.Log(vertices[0]);
+        
+
+        for(int i = 0; i < vertices.Length; i++)
+        {
+            if(vertices[i].x == test.x && vertices[i].y == test.y && vertices[i].z == test.z)
+            {
+                indiceEncontrado = i;
+                break;
+            }
+        }
+
+        Debug.Log(indiceEncontrado);
+
 
         GameObject gameController = GameObject.Find("GameController");
         ParseXML parseXML = gameController.GetComponent<ParseXML>();
@@ -181,15 +212,17 @@ public class GetVertices : MonoBehaviour {
 
         //Debug.Log(ActionUnitList.Count);
 
-       
-        for(int j = 0; j < ActionUnitList[AuID].Count(); j++)
+
+        /*for(int j = 0; j < ActionUnitList[AuID].Count(); j++)
         {
             searchID = System.Array.IndexOf(indexList.ToArray(), ActionUnitList[AuID].GetId(j));
             vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], ActionUnitList[AuID].GetDestination(j), t);
             //Debug.Log(searchID);
-        }
+        }*/
 
-  
+        vertices[0] = MoveVertexTo((Vector4)ogVertices[0], new Vector3(0,0,0), t);
+
+
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
 

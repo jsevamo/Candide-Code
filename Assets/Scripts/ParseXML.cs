@@ -115,7 +115,7 @@ public class ParseXML : MonoBehaviour {
 
     public List<Dictionary<string, string>> parseVertices()
     {
-        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVertices");
+        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVerticesCandide");
         var doc = XDocument.Parse(txtXmlAsset.text);
 
         var allDict = doc.Element("document").Elements("Mesh").Elements("Vertex");
@@ -152,7 +152,7 @@ public class ParseXML : MonoBehaviour {
 
     public void parseAUs()
     {
-        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVertices");
+        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVerticesCandide");
         var doc = XDocument.Parse(txtXmlAsset.text);
 
         var allDict = doc.Element("document").Elements("Au");
