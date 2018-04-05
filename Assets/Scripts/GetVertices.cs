@@ -145,9 +145,10 @@ public class GetVertices : MonoBehaviour {
 
 
 
-        Vector3 test = new Vector3(-100f, 150f, 70f);
+        Vector3 test = new Vector3(0f, 250f, 40f);
 
          Debug.Log(vertices[1]);
+        
 
 
          for(int i = 0; i < vertices.Length; i++)
@@ -161,7 +162,13 @@ public class GetVertices : MonoBehaviour {
          Debug.Log(indexToMove.Count);
 
 
-        /* GameObject gameController = GameObject.Find("GameController");
+         GameObject gameController = GameObject.Find("GameController");
+         ParseXML parseXML = gameController.GetComponent<ParseXML>();
+
+
+        Debug.Log(parseXML.candideVertexList.Count);
+
+        /*GameObject gameController = GameObject.Find("GameController");
          ParseXML parseXML = gameController.GetComponent<ParseXML>();
 
 
