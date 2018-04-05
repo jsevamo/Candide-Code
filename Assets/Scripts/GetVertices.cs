@@ -110,6 +110,8 @@ public class GetVertices : MonoBehaviour {
 
     int indiceEncontrado = -1;
 
+    List<int> indexToMove = new List<int>();
+
 
     // Use this for initialization
     void Start() {
@@ -152,12 +154,11 @@ public class GetVertices : MonoBehaviour {
          {
              if(vertices[i].x == test.x && vertices[i].y == test.y && vertices[i].z == test.z)
              {
-                 indiceEncontrado = i;
-                 //break;
+                indexToMove.Add(i);
              }
          }
 
-         Debug.Log(indiceEncontrado);
+         Debug.Log(indexToMove.Count);
 
 
         /* GameObject gameController = GameObject.Find("GameController");
@@ -220,6 +221,11 @@ public class GetVertices : MonoBehaviour {
         }*/
 
         //vertices[125] = MoveVertexTo((Vector4)ogVertices[125], new Vector3(0,0,0), t);
+
+        for(int i = 0; i < indexToMove.Count; i++)
+        {
+            vertices[indexToMove[i]] = MoveVertexTo((Vector4)ogVertices[indexToMove[i]], new Vector3(0, 0, 0), t);
+        }
 
 
         mesh.vertices = vertices;
