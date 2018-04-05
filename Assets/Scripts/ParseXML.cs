@@ -61,7 +61,7 @@ public class ActionUnit
 
 
 
-public class ParseXML : MonoBehaviour {
+public class ParseXML {
 
     List<Dictionary<string, string>> candideVertexDic;
     Dictionary<string, string> dictionary;
@@ -78,7 +78,7 @@ public class ParseXML : MonoBehaviour {
     public List<ActionUnit> auList = new List<ActionUnit>();
 
     // Use this for initialization
-    void Start () {
+    public void init () {
 
         amountOfVertex = 0;
 
@@ -115,7 +115,7 @@ public class ParseXML : MonoBehaviour {
 
     public List<Dictionary<string, string>> parseVertices()
     {
-        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVerticesCandide");
+        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVertices");
         var doc = XDocument.Parse(txtXmlAsset.text);
 
         var allDict = doc.Element("document").Elements("Mesh").Elements("Vertex");
@@ -152,7 +152,7 @@ public class ParseXML : MonoBehaviour {
 
     public void parseAUs()
     {
-        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVerticesCandide");
+        TextAsset txtXmlAsset = Resources.Load<TextAsset>("listaVertices");
         var doc = XDocument.Parse(txtXmlAsset.text);
 
         var allDict = doc.Element("document").Elements("Au");
@@ -194,8 +194,4 @@ public class ParseXML : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

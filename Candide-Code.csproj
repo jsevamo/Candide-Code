@@ -316,7 +316,6 @@
     <None Include="Assets\Resources\VertexFile.xml" />
     <None Include="Assets\Resources\listaAUs.xml" />
     <None Include="Assets\Resources\listaVertices.xml" />
-    <None Include="Assets\Resources\listaVerticesCandide.xml" />
     <None Include="Assets\Resources\plano.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
