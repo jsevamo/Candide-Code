@@ -143,64 +143,63 @@ public class GetVertices : MonoBehaviour {
 
 
 
-        Vector3 test = new Vector3(-146f, 130f, 20f);//vertices[0]; /
-        Vector3 test2 = new Vector3(-105f, 215f, 20f);
+        Vector3 test = new Vector3(146f, 130f, 20f);
 
-        Debug.Log(vertices[0]);
-        
-
-        for(int i = 0; i < vertices.Length; i++)
-        {
-            if(vertices[i].x == test.x && vertices[i].y == test.y && vertices[i].z == test.z)
-            {
-                indiceEncontrado = i;
-                break;
-            }
-        }
-
-        Debug.Log(indiceEncontrado);
+         Debug.Log(vertices[1]);
 
 
-        GameObject gameController = GameObject.Find("GameController");
-        ParseXML parseXML = gameController.GetComponent<ParseXML>();
+         for(int i = 0; i < vertices.Length; i++)
+         {
+             if(vertices[i].x == test.x && vertices[i].y == test.y && vertices[i].z == test.z)
+             {
+                 indiceEncontrado = i;
+                 break;
+             }
+         }
+
+         Debug.Log(indiceEncontrado);
 
 
-        for (int i = 0; i < ogVertices.Count; i++)
-        {
-            Vector4 v1 = (Vector4)ogVertices[i];
+        /* GameObject gameController = GameObject.Find("GameController");
+         ParseXML parseXML = gameController.GetComponent<ParseXML>();
 
 
-            for (int j = 0; j < ogVertices.Count; j++)
-            {
-                Vector4 v2 = parseXML.candideVertexList[j];
-
-                if (System.Math.Round(v1.x, 2) == System.Math.Round(v2.x, 2) && System.Math.Round(v1.y, 2) == System.Math.Round(v2.y, 2) && System.Math.Round(v1.z, 2) == System.Math.Round(v2.z, 2))
-                {
-                    v1.w = v2.w;
-                    break;
-                }
+         for (int i = 0; i < ogVertices.Count; i++)
+         {
+             Vector4 v1 = (Vector4)ogVertices[i];
 
 
-            }
-            
+             for (int j = 0; j < ogVertices.Count; j++)
+             {
+                 Vector4 v2 = parseXML.candideVertexList[j];
 
-            ogVertices[i] = v1;
-            indexList.Add(Mathf.RoundToInt(v1.w));
-
-        }
-
-        for (int i = 0; i < ogVertices.Count; i++)
-        {
-            Vector4 v;
-            v = (Vector4)ogVertices[i];
-            VerticesWithIndex.Add(v);
-        }
+                 if (System.Math.Round(v1.x, 2) == System.Math.Round(v2.x, 2) && System.Math.Round(v1.y, 2) == System.Math.Round(v2.y, 2) && System.Math.Round(v1.z, 2) == System.Math.Round(v2.z, 2))
+                 {
+                     v1.w = v2.w;
+                     break;
+                 }
 
 
-        indexList.ToArray();
+             }
 
-        ActionUnitList = parseXML.auList;
-        //Debug.Log(ActionUnitList[0].Count());
+
+             ogVertices[i] = v1;
+             indexList.Add(Mathf.RoundToInt(v1.w));
+
+         }
+
+         for (int i = 0; i < ogVertices.Count; i++)
+         {
+             Vector4 v;
+             v = (Vector4)ogVertices[i];
+             VerticesWithIndex.Add(v);
+         }
+
+
+         indexList.ToArray();
+
+         ActionUnitList = parseXML.auList;
+         //Debug.Log(ActionUnitList[0].Count());*/
 
     }
 
@@ -220,7 +219,7 @@ public class GetVertices : MonoBehaviour {
             //Debug.Log(searchID);
         }*/
 
-        vertices[0] = MoveVertexTo((Vector4)ogVertices[0], new Vector3(0,0,0), t);
+        vertices[125] = MoveVertexTo((Vector4)ogVertices[125], new Vector3(0,0,0), t);
 
 
         mesh.vertices = vertices;
