@@ -40,7 +40,7 @@ public class UnityVertexMatch
         return UnityVertex.Count;
     }
 
-    public int getComponent(int a)
+    public int getID(int a)
     {
         return UnityVertex[a];
     }
@@ -247,7 +247,7 @@ public class GetVertices : MonoBehaviour {
 
         //Debug.Log(indexList.Count);
 
-        Debug.Log(ActionUnitList[0].GetId(0));
+        //Debug.Log(ActionUnitList[0].GetId(0));
 
 
 
@@ -286,17 +286,56 @@ public class GetVertices : MonoBehaviour {
         Debug.Log(vertices[(int)matchList[2].getComponent(2)]);
         Debug.Log(vertices[(int)matchList[2].getComponent(3)]);*/
 
-        for(int j = 0; j < matchList.Count; j++)
+        /*for(int j = 0; j < matchList.Count; j++)
         {
             for (int i = 0; i < matchList[j].Count(); i++)
             {
                 vertices[matchList[j].getComponent(i)] = MoveVertexTo((Vector4)ogVertices[matchList[j].getComponent(i)], new Vector3(0, 0, 0), t);
             }
+        }*/
+
+        //searchID = System.Array.IndexOf(indexList.ToArray(), ActionUnitList[AuID].GetId(j));
+
+
+       Debug.Log(matchList.Count);
+
+
+
+        /*for(int i = 0; i < matchList[0].Count(); i++)
+        {
+            vertices[matchList[0].getID(ActionUnitList[0].GetId(i))] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(ActionUnitList[0].GetId(i))], ActionUnitList[0].GetDestination(0), t);
+        }*/
+
+        /*vertices[matchList[0].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(0)], ActionUnitList[0].GetDestination(0), t);
+        vertices[matchList[0].getID(1)] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(1)], ActionUnitList[0].GetDestination(0), t);
+        vertices[matchList[0].getID(2)] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(2)], ActionUnitList[0].GetDestination(0), t);
+
+        vertices[matchList[1].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(0)], ActionUnitList[0].GetDestination(1), t);
+        vertices[matchList[1].getID(1)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(1)], ActionUnitList[0].GetDestination(1), t);
+        vertices[matchList[1].getID(2)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(2)], ActionUnitList[0].GetDestination(1), t);
+        vertices[matchList[1].getID(3)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(3)], ActionUnitList[0].GetDestination(1), t);
+        vertices[matchList[1].getID(4)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(4)], ActionUnitList[0].GetDestination(1), t);
+        vertices[matchList[1].getID(5)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(5)], ActionUnitList[0].GetDestination(1), t);
+
+        vertices[matchList[2].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[2].getID(0)], ActionUnitList[0].GetDestination(2), t);
+        vertices[matchList[2].getID(1)] = MoveVertexTo((Vector4)ogVertices[matchList[2].getID(1)], ActionUnitList[0].GetDestination(2), t);
+        vertices[matchList[2].getID(2)] = MoveVertexTo((Vector4)ogVertices[matchList[2].getID(2)], ActionUnitList[0].GetDestination(2), t);*/
+
+        int f = 0;
+
+        for (int i = 0; i < matchList.Count; i++)
+        {
+            for(int j = 0; i<matchList[i].Count(); j++)
+            {
+                
+                f++;
+                
+            }
+            vertices[matchList[i].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[i].getID(0)], ActionUnitList[0].GetDestination(i), t);
         }
 
-        
-        
-
+        Debug.Log(f);
+        //vertices[matchList[0].getID(ActionUnitList[0].GetId(0))] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(1)], new Vector3(0, 0, 0), t);
 
 
         mesh.vertices = vertices;

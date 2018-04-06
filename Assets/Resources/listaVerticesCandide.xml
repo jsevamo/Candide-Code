@@ -4,22 +4,23 @@
 			<v>-146</v>
 			<v>130</v>
 			<v>20</v>
-			<id>1</id>
+			<id>0</id>
 		 </Vertex>
 		 
 		 <Vertex>
 			<v>-100</v>
 			<v>150</v>
 			<v>70</v>
-			<id>2</id>
+			<id>1</id>
 		 </Vertex>
 		 
 		 <Vertex>
 			<v>-105</v>
 			<v>215</v>
 			<v>20</v>
-			<id>3</id>
+			<id>2</id>
 		 </Vertex>
+		 
 		 
 
 			 
@@ -29,24 +30,24 @@
 	<Au>
 	
 		<Vertex>
+			<v>-500</v>
 			<v>0</v>
 			<v>0</v>
-			<v>0</v>
-			<id>1</id>
+			<id>0</id>
 		</Vertex>
 			
 		<Vertex>
 			<v>0</v>
 			<v>0</v>
 			<v>0</v>
-			<id>2</id>
+			<id>1</id>
 		</Vertex>
 		
 		<Vertex>	
+			<v>500</v>
 			<v>0</v>
 			<v>0</v>
-			<v>0</v>
-			<id>3</id>
+			<id>2</id>
 		</Vertex>
 		
 		
