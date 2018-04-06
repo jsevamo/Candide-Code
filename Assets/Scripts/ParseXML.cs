@@ -61,51 +61,45 @@ public class ActionUnit
 
 
 
-public class ParseXML : MonoBehaviour {
+public class ParseXML {
 
+    // Atributos Candide
+    public List<Vector3> candideVertexList = new List<Vector3>();
+    public List<int> candideVertexID = new List<int>();
+    public List<ActionUnit> auList = new List<ActionUnit>();
+
+    // Otros atributos
     List<Dictionary<string, string>> candideVertexDic;
     Dictionary<string, string> dictionary;
-    public List<Vector4> candideVertexList = new List<Vector4>();
+    public List<Vector3> destinationList = new List<Vector3>();
+    public List<int> ids = new List<int>();
     int amountOfVertex;
 
     //---------------------------------------------------------------------
 
 
-    public List<Vector3> destinationList = new List<Vector3>();
-    public List<int> ids = new List<int>();
-
+    
     //public List<List<int>> idList = new List<List<int>>();
-    public List<ActionUnit> auList = new List<ActionUnit>();
+
 
     // Use this for initialization
-    void Start () {
+    public void ParceFile () {
 
         amountOfVertex = 0;
 
         candideVertexDic = parseVertices();
-        //dictionary = candideVertexDic[1];
-
-        /*AusDic = parseAUs();
-        dictionary = AusDic[0];
-
-
-        Debug.Log(dictionary["x"]);
-        Debug.Log(dictionary["y"]);
-        Debug.Log(dictionary["z"]);
-        Debug.Log(dictionary["ID"]);*/
-
-        /*Vector3 meat = new Vector3(float.Parse(dic["riddle"]), float.Parse(dic["ans"]), float.Parse(dic["test"]));
-        Debug.Log(meat.y);*/
-
+        
         for(int i=0; i<amountOfVertex; i++)
         {
-            Vector4 v;
+            Vector3 v;
+            int id;
             v.x = float.Parse(candideVertexDic[i]["x"]);
             v.y = float.Parse(candideVertexDic[i]["y"]);
             v.z = float.Parse(candideVertexDic[i]["z"]);
-            v.w = float.Parse(candideVertexDic[i]["ID"]);
+            id = int.Parse(candideVertexDic[i]["ID"]);
 
             candideVertexList.Add(v);
+            candideVertexID.Add(id);
         }
 
         parseAUs();
@@ -193,9 +187,4 @@ public class ParseXML : MonoBehaviour {
 
 
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
