@@ -96,8 +96,6 @@ public class GetVertices : MonoBehaviour {
     List<Vector3> ogVertices = new List<Vector3>();
     List<int> ogVerticesID = new List<int>();
 
-    //Vector3 foundVector;
-    bool hasFound;
 
     /**
     * This is a test.
@@ -118,19 +116,12 @@ public class GetVertices : MonoBehaviour {
 
 
 
-    //public List<int> VertexIDList = new List<int>();
-    //public List<Vector3> VertexDestinationList = new List<Vector3>();
-
-
     public List<ActionUnit> ActionUnitList = new List<ActionUnit>();
 
 
     //------------------------------------------------
 
-    int indiceEncontrado = -1;
 
-    List<int> indexToMove = new List<int>();
-    List<List<int>> indexesToMove = new List<List<int>>();
 
     List<UnityVertexMatch> matchList = new List<UnityVertexMatch>();
 
@@ -138,13 +129,12 @@ public class GetVertices : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        hasFound = false;
+
         AuID = 0;
 
         mesh = GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
-
-        //foundVector = new Vector3(0, 0, 0);
+        
 
 
         for (int i = 0; i < vertices.Length; i++)
@@ -175,11 +165,9 @@ public class GetVertices : MonoBehaviour {
 
         parseXML.ParceFile();
 
-        //Debug.Log(parseXML.candideVertexList[0]);
-        //Debug.Log(parseXML.candideVertexID[0]);
 
         ActionUnitList = parseXML.auList;
-        //Debug.Log(ActionUnitList[0].Count());
+
 
 
         for(int j = 0; j < parseXML.candideVertexList.Count; j++)
@@ -192,7 +180,6 @@ public class GetVertices : MonoBehaviour {
 
             Vector3 testing = new Vector3(_x, _y, _z);
 
-            //parseXML.candideVertexList[0];
 
             for (int i = 0; i < vertices.Length; i++)
             {
@@ -204,50 +191,8 @@ public class GetVertices : MonoBehaviour {
             }
         }
 
-        //Debug.Log(matchList[1].Count());
         
-        /*Debug.Log(vertices[(int)matchList[2].getComponent(0)]);
-        Debug.Log(vertices[(int)matchList[2].getComponent(1)]);
-        Debug.Log(vertices[(int)matchList[2].getComponent(2)]);
-        Debug.Log(vertices[(int)matchList[2].getComponent(3)]);*/
 
-        for (int i = 0; i < ogVertices.Count; i++)
-        {
-            Vector4 v1 = (Vector4)ogVertices[i];
-
-            for (int j = 0; j < parseXML.candideVertexList.Count; j++)
-            {
-                Vector4 v2 = parseXML.candideVertexList[j];
-
-                if (System.Math.Round(v1.x, 2) == System.Math.Round(v2.x, 2) && System.Math.Round(v1.y, 2) == System.Math.Round(v2.y, 2) && System.Math.Round(v1.z, 2) == System.Math.Round(v2.z, 2))
-                {
-                    v1.w = v2.w;
-                    
-                    break;
-                }
-
-                
-            }
-            indexList.Add(Mathf.RoundToInt(v1.w));
-            ogVertices[i] = v1;
-            
-
-
-        }
-
-        for (int i = 0; i < ogVertices.Count; i++)
-        {
-            Vector4 v;
-            v = (Vector4)ogVertices[i];
-            VerticesWithIndex.Add(v);
-        }
-
-
-        indexList.ToArray();
-
-        //Debug.Log(indexList.Count);
-
-        //Debug.Log(ActionUnitList[0].GetId(0));
 
 
 
@@ -255,46 +200,6 @@ public class GetVertices : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
-        //searchID = System.Array.IndexOf(indexList.ToArray(), VertexID);
-        //vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], destination, t);
-
-        //Debug.Log(ActionUnitList.Count);
-
-
-        /*for(int j = 0; j < ActionUnitList[AuID].Count(); j++)
-        {
-            searchID = System.Array.IndexOf(indexList.ToArray(), ActionUnitList[AuID].GetId(j));
-            vertices[searchID] = MoveVertexTo((Vector4)ogVertices[searchID], ActionUnitList[AuID].GetDestination(j), t);
-            //Debug.Log(searchID);
-        }*/
-
-        //vertices[125] = MoveVertexTo((Vector4)ogVertices[125], new Vector3(0,0,0), t);
-
-        /*for(int i = 0; i < indexToMove.Count; i++)
-        {
-            vertices[indexesToMove[0][i]] = MoveVertexTo((Vector4)ogVertices[indexesToMove[0][i]], new Vector3(0, 0, 0), t);
-        }*/
-
-        /*for(int i = 0; i < indexToMove.Count; i++)
-        {
-            vertices[indexToMove[i]] = MoveVertexTo((Vector4)ogVertices[indexToMove[i]], new Vector3(0, 0, 0), t);
-        }*/
-
-        /*Debug.Log(vertices[(int)matchList[2].getComponent(0)]);
-        Debug.Log(vertices[(int)matchList[2].getComponent(1)]);
-        Debug.Log(vertices[(int)matchList[2].getComponent(2)]);
-        Debug.Log(vertices[(int)matchList[2].getComponent(3)]);*/
-
-        /*for(int j = 0; j < matchList.Count; j++)
-        {
-            for (int i = 0; i < matchList[j].Count(); i++)
-            {
-                vertices[matchList[j].getComponent(i)] = MoveVertexTo((Vector4)ogVertices[matchList[j].getComponent(i)], new Vector3(0, 0, 0), t);
-            }
-        }*/
-
-        //searchID = System.Array.IndexOf(indexList.ToArray(), ActionUnitList[AuID].GetId(j));
 
 
        Debug.Log(matchList.Count);
@@ -310,8 +215,6 @@ public class GetVertices : MonoBehaviour {
             }
             
         }
-
-
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
@@ -341,27 +244,6 @@ public class GetVertices : MonoBehaviour {
         return inital;
 
     }
-
-
-    public void ReadString()
-    {
-        string path = "Assets/ArchivosTexto/test.txt";
-        StreamReader reader = new StreamReader(path);
-
-        //Saving all the text 
-        string allAUs = reader.ReadToEnd();
-
-        //Spliting all the text by how many AUs there are.
-        Debug.Log("Cuantas unidades de acción hay? " + allAUs.Split('/').Length);
-        //Debug.Log("La unidad de acción 2 es: " + allAUs.Split('/')[0]);
-
-
-        /*string[] lines = System.IO.File.ReadAllLines(path);
-        Debug.Log(lines[0].Split(',')[1]);*/
-
-        reader.Close();
-    }
-
 
 
 }

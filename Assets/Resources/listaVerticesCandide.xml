@@ -37,14 +37,14 @@
 		</Vertex>
 			
 		<Vertex>
-			<v>0</v>
+			<v>-500</v>
 			<v>0</v>
 			<v>0</v>
 			<id>1</id>
 		</Vertex>
 		
 		<Vertex>	
-			<v>500</v>
+			<v>-500</v>
 			<v>0</v>
 			<v>0</v>
 			<id>2</id>
