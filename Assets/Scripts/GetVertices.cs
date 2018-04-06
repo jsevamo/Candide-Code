@@ -300,42 +300,17 @@ public class GetVertices : MonoBehaviour {
        Debug.Log(matchList.Count);
 
 
-
-        /*for(int i = 0; i < matchList[0].Count(); i++)
+        for (int i = 0; i < ActionUnitList[AuID].Count(); i++)
         {
-            vertices[matchList[0].getID(ActionUnitList[0].GetId(i))] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(ActionUnitList[0].GetId(i))], ActionUnitList[0].GetDestination(0), t);
-        }*/
-
-        /*vertices[matchList[0].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(0)], ActionUnitList[0].GetDestination(0), t);
-        vertices[matchList[0].getID(1)] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(1)], ActionUnitList[0].GetDestination(0), t);
-        vertices[matchList[0].getID(2)] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(2)], ActionUnitList[0].GetDestination(0), t);
-
-        vertices[matchList[1].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(0)], ActionUnitList[0].GetDestination(1), t);
-        vertices[matchList[1].getID(1)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(1)], ActionUnitList[0].GetDestination(1), t);
-        vertices[matchList[1].getID(2)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(2)], ActionUnitList[0].GetDestination(1), t);
-        vertices[matchList[1].getID(3)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(3)], ActionUnitList[0].GetDestination(1), t);
-        vertices[matchList[1].getID(4)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(4)], ActionUnitList[0].GetDestination(1), t);
-        vertices[matchList[1].getID(5)] = MoveVertexTo((Vector4)ogVertices[matchList[1].getID(5)], ActionUnitList[0].GetDestination(1), t);
-
-        vertices[matchList[2].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[2].getID(0)], ActionUnitList[0].GetDestination(2), t);
-        vertices[matchList[2].getID(1)] = MoveVertexTo((Vector4)ogVertices[matchList[2].getID(1)], ActionUnitList[0].GetDestination(2), t);
-        vertices[matchList[2].getID(2)] = MoveVertexTo((Vector4)ogVertices[matchList[2].getID(2)], ActionUnitList[0].GetDestination(2), t);*/
-
-        int f = 0;
-
-        for (int i = 0; i < matchList.Count; i++)
-        {
-            for(int j = 0; i<matchList[i].Count(); j++)
+            for(int j = 0; j < matchList[i].Count(); j++)
             {
-                
-                f++;
-                
+
+                vertices[matchList[i].getID(j)] = MoveVertexTo((Vector4)ogVertices[matchList[i].getID(j)], ActionUnitList[AuID].GetDestination(i), t);
+
             }
-            vertices[matchList[i].getID(0)] = MoveVertexTo((Vector4)ogVertices[matchList[i].getID(0)], ActionUnitList[0].GetDestination(i), t);
+            
         }
 
-        Debug.Log(f);
-        //vertices[matchList[0].getID(ActionUnitList[0].GetId(0))] = MoveVertexTo((Vector4)ogVertices[matchList[0].getID(1)], new Vector3(0, 0, 0), t);
 
 
         mesh.vertices = vertices;
