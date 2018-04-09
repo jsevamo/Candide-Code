@@ -468,6 +468,13 @@
 			<v>136</v>
 			<id>66</id>
 		 </Vertex>
+		 
+		 <Vertex>
+			<v>0</v>
+			<v>-99.5</v>
+			<v>137</v>
+			<id>67</id>
+		</Vertex>
 		 		 
 		 
 	 </Mesh>
@@ -883,10 +890,172 @@
 			<v>0</v>
 			<v>-80</v>
 			<v>142</v>
+			<id>67</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>30</v>
+			<v>-50</v>
+			<v>108</v>
+			<id>25</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-30</v>
+			<v>-50</v>
+			<v>108</v>
+			<id>58</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>50</v>
+			<v>-70</v>
+			<v>102</v>
+			<id>26</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-50</v>
+			<v>-70</v>
+			<v>102</v>
+			<id>59</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>10</v>
+			<v>-75</v>
+			<v>141</v>
+			<id>33</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-10</v>
+			<v>-75</v>
+			<v>141</v>
+			<id>66</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>0</v>
+			<v>-190</v>
+			<v>120</v>
+			<id>9</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>0</v>
+			<v>-140</v>
+			<v>138</v>
+			<id>8</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>0</v>
+			<v>-115</v>
+			<v>137</v>
 			<id>7</id>
 		</Vertex>
 		
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>80</v>
+			<v>-70</v>
+			<v>77</v>
+			<id>31</id>
+		</Vertex>
 		
+		<Vertex>
+			<v>-80</v>
+			<v>-70</v>
+			<v>77</v>
+			<id>64</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>0</v>
+			<v>-160</v>
+			<v>131</v>
+			<id>7</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>0</v>
+			<v>-170</v>
+			<v>134</v>
+			<id>8</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>0</v>
+			<v>-190</v>
+			<v>110</v>
+			<id>9</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>110</v>
+			<v>-215</v>
+			<v>55</v>
+			<id>30</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-110</v>
+			<v>-215</v>
+			<v>55</v>
+			<id>63</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>40</v>
+			<v>-205</v>
+			<v>90</v>
+			<id>32</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-40</v>
+			<v>-205</v>
+			<v>90</v>
+			<id>65</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>0</v>
+			<v>-160</v>
+			<v>142</v>
+			<id>7</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>0</v>
+			<v>-170</v>
+			<v>134</v>
+			<id>8</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>0</v>
+			<v>-180</v>
+			<v>110</v>
+			<id>9</id>
+		</Vertex>
 	
 	</Au>
 	

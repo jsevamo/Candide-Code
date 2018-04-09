@@ -196,6 +196,7 @@ public class GetVertices : MonoBehaviour {
 
 
         
+        
 
 
     }
@@ -217,6 +218,10 @@ public class GetVertices : MonoBehaviour {
         }
 
         
+
+
+
+
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
