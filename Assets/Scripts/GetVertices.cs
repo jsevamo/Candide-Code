@@ -191,9 +191,9 @@ public class GetVertices : MonoBehaviour {
             }
         }
 
+
+
         
-
-
 
 
     }
@@ -202,19 +202,23 @@ public class GetVertices : MonoBehaviour {
     void Update() {
 
 
-       Debug.Log(matchList.Count);
+        //Debug.Log(matchList.Count);
+
+        //Debug.Log(ActionUnitList[1].GetId(0));
 
 
         for (int i = 0; i < ActionUnitList[AuID].Count(); i++)
         {
-            for(int j = 0; j < matchList[i].Count(); j++)
+            for(int j = 0; j < matchList[ActionUnitList[AuID].GetId(i)].Count(); j++)
             {
 
-                vertices[matchList[i].getID(j)] = MoveVertexTo((Vector4)ogVertices[matchList[i].getID(j)], ActionUnitList[AuID].GetDestination(i), t);
+                vertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)] = MoveVertexTo(ogVertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)], ActionUnitList[AuID].GetDestination(i), t);
 
             }
             
         }
+
+        
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
