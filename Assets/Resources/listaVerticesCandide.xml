@@ -475,46 +475,421 @@
 	<Au>
 	
 		<Vertex>
-			<v>-500</v>
+			<v>10</v>
+			<v>50</v>
+			<v>120</v>
+			<id>17</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-10</v>
+			<v>50</v>
+			<v>120</v>
+			<id>50</id>
+		 </Vertex>
+		 
+		 <Vertex>
+			<v>70</v>
+			<v>72</v>
+			<v>114</v>
+			<id>16</id>
+		 </Vertex>
+		 
+		 <Vertex>
+			<v>-70</v>
+			<v>72</v>
+			<v>114</v>
+			<id>49</id>
+		 </Vertex>
+		 
+		 <Vertex>
+			<v>70</v>
+			<v>60</v>
+			<v>114</v>
+			<id>18</id>
+		 </Vertex>
+		 
+		 <Vertex>
+			<v>-70</v>
+			<v>60</v>
+			<v>114</v>
+			<id>51</id>
+		 </Vertex>
+		 
+		 <Vertex>
+			<v>120</v>
+			<v>60</v>
+			<v>70</v>
+			<id>15</id>
+		 </Vertex>
+		 
+		 <Vertex>
+			<v>-120</v>
+			<v>60</v>
+			<v>70</v>
+			<id>48</id>
+		 </Vertex>
+		
+		
+			
+		
+		
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>20</v>
+			<v>100</v>
+			<v>116</v>
+			<id>17</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-20</v>
+			<v>100</v>
+			<v>116</v>
+			<id>50</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>110</v>
+			<v>70</v>
+			<v>70</v>
+			<id>15</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-100</v>
+			<v>70</v>
+			<v>70</v>
+			<id>48</id>
+		</Vertex>
+		
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>90</v>
+			<v>132</v>
+			<v>105</v>
+			<id>16</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-90</v>
+			<v>132</v>
+			<v>105</v>
+			<id>49</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>90</v>
+			<v>120</v>
+			<v>108</v>
+			<id>18</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-90</v>
+			<v>120</v>
+			<v>108</v>
+			<id>51</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>125</v>
+			<v>90</v>
+			<v>68</v>
+			<id>15</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-125</v>
+			<v>90</v>
+			<v>65</v>
+			<id>48</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>30</v>
+			<v>75</v>
+			<v>120</v>
+			<id>17</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-30</v>
+			<v>75</v>
+			<v>120</v>
+			<id>50</id>
+		</Vertex>
+		
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>70</v>
+			<v>59</v>
+			<v>101</v>
+			<id>21</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>59</v>
+			<v>101</v>
+			<id>54</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>70</v>
+			<v>36</v>
+			<v>103</v>
+			<id>22</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>36</v>
+			<v>103</v>
+			<id>55</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>70</v>
+			<v>43</v>
+			<v>107</v>
+			<id>22</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>43</v>
+			<v>107</v>
+			<id>55</id>
+		</Vertex>
+		
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>70</v>
+			<v>39</v>
+			<v>108</v>
+			<id>21</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-79</v>
+			<v>39</v>
+			<v>108</v>
+			<id>54</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>70</v>
+			<v>42</v>
+			<v>108</v>
+			<id>21</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>42</v>
+			<v>108</v>
+			<id>54</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>70</v>
+			<v>40</v>
+			<v>107</v>
+			<id>22</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>40</v>
+			<v>107</v>
+			<id>55</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>70</v>
+			<v>39</v>
+			<v>108</v>
+			<id>21</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>70</v>
+			<v>40</v>
+			<v>108</v>
+			<id>22</id>
+		</Vertex>
+		
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
+			<v>-70</v>
+			<v>39</v>
+			<v>108</v>
+			<id>54</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>40</v>
+			<v>108</v>
+			<id>55</id>
+		</Vertex>
+	
+	</Au>
+	
+	<Au>
+	
+		<Vertex>
 			<v>0</v>
-			<v>0</v>
+			<v>-30</v>
+			<v>176</v>
+			<id>5</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>30</v>
+			<v>-20</v>
+			<v>110</v>
+			<id>25</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-30</v>
+			<v>-10</v>
+			<v>110</v>
+			<id>58</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>50</v>
+			<v>-40</v>
+			<v>100</v>
+			<id>26</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-50</v>
+			<v>-40</v>
+			<v>100</v>
+			<id>59</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>10</v>
+			<v>-80</v>
+			<v>136</v>
+			<id>33</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-10</v>
+			<v>-80</v>
+			<v>136</v>
 			<id>66</id>
 		</Vertex>
+		
+		<Vertex>
+			<v>90</v>
+			<v>82</v>
+			<v>110</v>
+			<id>16</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-90</v>
+			<v>82</v>
+			<v>110</v>
+			<id>49</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>30</v>
+			<v>55</v>
+			<v>120</v>
+			<id>17</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-30</v>
+			<v>55</v>
+			<v>120</v>
+			<id>50</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>90</v>
+			<v>70</v>
+			<v>110</v>
+			<id>18</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-90</v>
+			<v>70</v>
+			<v>110</v>
+			<id>51</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>70</v>
+			<v>40</v>
+			<v>0</v>
+			<id>22</id>
+		</Vertex>
+		
+		<Vertex>
+			<v>-70</v>
+			<v>40</v>
+			<v>0</v>
+			<id>55</id>
+		</Vertex>
 	
-			
-		
-		
+	
 	</Au>
 	
 	<Au>
 	
 		<Vertex>
 			<v>0</v>
-			<v>500</v>
-			<v>0</v>
-			<id>1</id>
+			<v>-80</v>
+			<v>142</v>
+			<id>7</id>
 		</Vertex>
 		
 		
-			
-		
-		
+	
 	</Au>
 	
-	<Au>
-	
-		<Vertex>
-			<v>-500</v>
-			<v>0</v>
-			<v>0</v>
-			<id>2</id>
-		</Vertex>
-		
-		
-			
-		
-		
-	</Au>
 	
 
 	

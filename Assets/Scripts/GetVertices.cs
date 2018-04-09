@@ -46,6 +46,8 @@ public class UnityVertexMatch
     }
 
     
+
+    
 }
 
 
@@ -201,18 +203,14 @@ public class GetVertices : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-
-        //Debug.Log(matchList.Count);
-
-        //Debug.Log(ActionUnitList[1].GetId(0));
-
-
-        for (int i = 0; i < ActionUnitList[AuID].Count(); i++)
+        int i, j;
+        for (i = 0; i < ActionUnitList[AuID].Count(); i++)
         {
-            for(int j = 0; j < matchList[ActionUnitList[AuID].GetId(i)].Count(); j++)
+            for(j = 0; j < matchList[ActionUnitList[AuID].GetId(i)].Count(); j++)
             {
 
-                vertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)] = MoveVertexTo(ogVertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)], ActionUnitList[AuID].GetDestination(i), t);
+                vertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)] =
+                    MoveVertexTo(ogVertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)], ActionUnitList[AuID].GetDestination(i), t);
 
             }
             
