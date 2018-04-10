@@ -77,9 +77,7 @@ public class ParseXML {
 
     //---------------------------------------------------------------------
 
-
-    
-    //public List<List<int>> idList = new List<List<int>>();
+    public List<string> ActionUnitNames = new List<string>();
 
 
     // Use this for initialization
@@ -151,7 +149,20 @@ public class ParseXML {
 
         var allDict = doc.Element("document").Elements("Au");
         List<Dictionary<string, string>> allTextDic = new List<Dictionary<string, string>>();
-        
+
+        foreach (var oneDict in allDict)
+        {
+            var nameOfAus = oneDict.Elements("Name");
+
+            for (int i = 0; i < nameOfAus.Count(); i++)
+            {
+                var twoStringsVertex = nameOfAus.ElementAt(i).Elements("N");
+                XElement element1 = twoStringsVertex.ElementAt(0);
+                string first = element1.ToString().Replace("<N>", "").Replace("</N>", "");
+                ActionUnitNames.Add(first);
+            }
+        }
+
 
         foreach (var oneDict in allDict)
         { 
@@ -181,6 +192,18 @@ public class ParseXML {
             }
 
             auList.Add(newActionUnit);
+
+
+            //var nameOfAus = oneDict.Elements("Name");
+            //Debug.Log(nameOfAus.Count());
+
+            /*for (int i = 0; i < nameOfAus.Count(); i++)
+            {
+                var twoStringsVertex = auCount.ElementAt(i).Elements("N");
+                XElement element1 = twoStringsVertex.ElementAt(0);
+                string name = element1.ToString().Replace("<N>", "").Replace("</N>", "");
+                ActionUnitNames.Add(name);
+            }*/
         }
 
         //Debug.Log(auList[4].GetId(0));

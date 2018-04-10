@@ -193,10 +193,7 @@ public class GetVertices : MonoBehaviour {
             }
         }
 
-
-
-        
-        
+        Debug.Log(parseXML.ActionUnitNames[1]);
 
 
     }
@@ -216,10 +213,6 @@ public class GetVertices : MonoBehaviour {
             }
             
         }
-
-        
-
-
 
 
 
