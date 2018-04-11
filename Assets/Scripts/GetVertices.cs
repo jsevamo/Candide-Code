@@ -197,18 +197,20 @@ public class GetVertices : MonoBehaviour {
             }
         }
 
-        
 
+        fixTransform();
 
     }
 
     // Update is called once per frame
     void Update() {
 
-        int i, j;
-        for (i = 0; i < ActionUnitList[AuID].Count(); i++)
+        
+
+
+        /*for (int i = 0; i < ActionUnitList[AuID].Count(); i++)
         {
-            for(j = 0; j < matchList[ActionUnitList[AuID].GetId(i)].Count(); j++)
+            for(int j = 0; j < matchList[ActionUnitList[AuID].GetId(i)].Count(); j++)
             {
 
                 vertices[matchList[ActionUnitList[AuID].GetId(i)].getID(j)] =
@@ -216,9 +218,22 @@ public class GetVertices : MonoBehaviour {
 
             }
             
-        }
+        }*/
 
         ActionUnitNameText.text = parseXML.ActionUnitNames[AuID];
+
+        /**
+         * Important, use this to change from local to world to each vertex
+         * 
+         * Vector3 worldPt = transform.TransformPoint(vertices[0]);
+            Debug.Log(worldPt);
+
+            To move a vertex back, for raycast:
+
+        vertices[0] = MoveVertexTo(ogVertices[0], new Vector3(ogVertices[0].x, ogVertices[0].y, ogVertices[0].z - 200), t);
+         * */
+
+        vertices[0] = MoveVertexTo(ogVertices[0], new Vector3(ogVertices[0].x, ogVertices[0].y, ogVertices[0].z - 200), t);
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
@@ -246,6 +261,47 @@ public class GetVertices : MonoBehaviour {
         inital.z = (1 - t) * inital.z + (t * goalPosition.z);
 
         return inital;
+
+    }
+
+    public void fixTransform()
+    {
+        Vector3 origin = new Vector3(0, 0, 0);
+
+        Matrix4x4 candideMatrix;
+        candideMatrix = transform.localToWorldMatrix;
+        
+
+        Matrix4x4 OriginalVertexMatrix = new Matrix4x4();
+
+        for (int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < vertices.Length; j++)
+            {
+                if (i == 0)
+                    OriginalVertexMatrix.SetColumn(i, new Vector4(1, 0, 0, 0));
+                else if (i == 1)
+                    OriginalVertexMatrix.SetColumn(i, new Vector4(0, 1, 0, 0));
+                else if (i == 2)
+                    OriginalVertexMatrix.SetColumn(i, new Vector4(0, 0, 1, 0));
+                else if (i == 3)
+                    OriginalVertexMatrix.SetColumn(i, new Vector4(vertices[j].x, vertices[j].y, vertices[j].z, t));
+            }
+        }
+
+        Vector4[] Matrix;
+        Matrix = new Vector4[vertices.Length];
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            Matrix[i] = new Vector4(vertices[0].x, vertices[0].y, vertices[0].z, 0);
+        }
+
+        Debug.Log(Matrix.Length);
+
+
+
+
 
     }
 
