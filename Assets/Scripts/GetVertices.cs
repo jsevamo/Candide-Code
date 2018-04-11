@@ -78,8 +78,10 @@ public class GetVertices : MonoBehaviour {
     * This is a variable the user or the computer can control. It let's us choose which 
     * vertex we want to move with the parametrization.
     */
-    public int AuID;
+    [SerializeField]
+    int AuID;
 
+    public string AuName;
 
     Vector3 destination = new Vector3(0f, 0f, 0);
 
@@ -120,18 +122,20 @@ public class GetVertices : MonoBehaviour {
 
     public List<ActionUnit> ActionUnitList = new List<ActionUnit>();
 
+    public Text ActionUnitNameText;
+
 
     //------------------------------------------------
 
 
 
     List<UnityVertexMatch> matchList = new List<UnityVertexMatch>();
-
+    ParseXML parseXML = new ParseXML();
 
     // Use this for initialization
     void Start() {
 
-
+        t = 0;
         AuID = 0;
 
         mesh = GetComponent<MeshFilter>().mesh;
@@ -159,7 +163,7 @@ public class GetVertices : MonoBehaviour {
         
 
         GameObject gameController = GameObject.Find("GameController");
-        ParseXML parseXML = new ParseXML();
+        
 
         
 
@@ -193,7 +197,7 @@ public class GetVertices : MonoBehaviour {
             }
         }
 
-        Debug.Log(parseXML.ActionUnitNames[1]);
+        
 
 
     }
@@ -214,7 +218,7 @@ public class GetVertices : MonoBehaviour {
             
         }
 
-
+        ActionUnitNameText.text = parseXML.ActionUnitNames[AuID];
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();

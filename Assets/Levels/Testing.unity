@@ -294,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: 0
   AuID: 0
+  AuName: 
   vertices: []
   searchID: -1
   VerticesWithIndex: []
