@@ -208,7 +208,7 @@ public class GetVertices : MonoBehaviour {
         
 
 
-        /*for (int i = 0; i < ActionUnitList[AuID].Count(); i++)
+        for (int i = 0; i < ActionUnitList[AuID].Count(); i++)
         {
             for(int j = 0; j < matchList[ActionUnitList[AuID].GetId(i)].Count(); j++)
             {
@@ -218,7 +218,7 @@ public class GetVertices : MonoBehaviour {
 
             }
             
-        }*/
+        }
 
         ActionUnitNameText.text = parseXML.ActionUnitNames[AuID];
 
@@ -270,13 +270,13 @@ public class GetVertices : MonoBehaviour {
 
         Matrix4x4 candideMatrix;
         candideMatrix = transform.localToWorldMatrix;
-        
+
 
         Matrix4x4 OriginalVertexMatrix = new Matrix4x4();
 
         for (int i = 0; i < 4; i++)
         {
-            for(int j = 0; j < vertices.Length; j++)
+            for (int j = 0; j < vertices.Length; j++)
             {
                 if (i == 0)
                     OriginalVertexMatrix.SetColumn(i, new Vector4(1, 0, 0, 0));
@@ -297,7 +297,44 @@ public class GetVertices : MonoBehaviour {
             Matrix[i] = new Vector4(vertices[0].x, vertices[0].y, vertices[0].z, 0);
         }
 
-        Debug.Log(Matrix.Length);
+        //Debug.Log(Matrix[0]);
+
+        Matrix4x4 Translation = new Matrix4x4();
+
+        Translation.SetRow(0, new Vector4(1, 0, 0, transform.position.x));
+        Translation.SetRow(1, new Vector4(0, 1, 0, transform.position.y));
+        Translation.SetRow(2, new Vector4(0, 0, 1, transform.position.z));
+        Translation.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        Debug.Log(Translation.MultiplyPoint(Matrix[0]));
+
+        for(int i = 0; i < Matrix.Length; i++)
+        {
+            Translation.MultiplyPoint(Matrix[i]);
+        }
+
+        Debug.Log(Translation);
+
+
+        Matrix4x4 Scale = new Matrix4x4();
+
+        Scale.SetRow(0, new Vector4(transform.localScale.x, 0, 0, 0));
+        Scale.SetRow(1, new Vector4(0, transform.localScale.y, 0, 0));
+        Scale.SetRow(2, new Vector4(0, 0, transform.localScale.z, 0));
+        Scale.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        Debug.Log(Scale.MultiplyPoint(Matrix[0]));
+
+        for (int i = 0; i < Matrix.Length; i++)
+        {
+            Scale.MultiplyPoint(Matrix[i]);
+        }
+
+
+
+
+
+
 
 
 
