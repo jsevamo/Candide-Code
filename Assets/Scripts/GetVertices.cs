@@ -124,13 +124,16 @@ public class GetVertices : MonoBehaviour {
 
     public Text ActionUnitNameText;
 
-
-    //------------------------------------------------
-
-
-
     List<UnityVertexMatch> matchList = new List<UnityVertexMatch>();
     ParseXML parseXML = new ParseXML();
+
+    //-----------------RayCast-------------------------------
+
+    RaycastHit hit;
+
+
+
+
 
     // Use this for initialization
     void Start() {
@@ -198,6 +201,33 @@ public class GetVertices : MonoBehaviour {
         }
 
 
+        Ray ray = new Ray(transform.position, transform.TransformDirection(Vector3.back));
+        //Debug.Log(ray);
+
+
+
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider);
+
+            if(hit.collider != null)
+            {
+                Debug.DrawLine(ray.origin, hit.point, Color.green, 20, true);
+                Debug.Log("It hits");
+            }
+                
+            else
+            {
+                Debug.DrawLine(ray.origin, hit.point, Color.red, 20, true);
+                Debug.Log("It doesnt hit");
+            }
+                
+        }
+
+
+
+
         //fixTransform();
 
     }
@@ -233,10 +263,11 @@ public class GetVertices : MonoBehaviour {
         vertices[0] = MoveVertexTo(ogVertices[0], new Vector3(ogVertices[0].x, ogVertices[0].y, ogVertices[0].z - 200), t);
          * */
 
-        Vector3 worldPt = transform.TransformPoint(vertices[0]);
-        Debug.Log(worldPt);
+        /*Vector3 worldPt = transform.TransformPoint(vertices[0]);
+        Debug.Log(worldPt);*/
 
-        
+        Vector3 forward = transform.TransformDirection(Vector3.back);
+        Debug.DrawRay(transform.position, forward, Color.green, 20, true);
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
