@@ -198,7 +198,7 @@ public class GetVertices : MonoBehaviour {
         }
 
 
-        fixTransform();
+        //fixTransform();
 
     }
 
@@ -233,7 +233,10 @@ public class GetVertices : MonoBehaviour {
         vertices[0] = MoveVertexTo(ogVertices[0], new Vector3(ogVertices[0].x, ogVertices[0].y, ogVertices[0].z - 200), t);
          * */
 
-        vertices[0] = MoveVertexTo(ogVertices[0], new Vector3(ogVertices[0].x, ogVertices[0].y, ogVertices[0].z - 200), t);
+        Vector3 worldPt = transform.TransformPoint(vertices[0]);
+        Debug.Log(worldPt);
+
+        
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
