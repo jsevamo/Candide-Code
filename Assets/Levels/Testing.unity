@@ -250,7 +250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 7de3bd79663978e4589e4bbe3ee513c4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7de3bd79663978e4589e4bbe3ee513c4, type: 3}
@@ -812,6 +812,10 @@ Prefab:
     - target: {fileID: 400000, guid: 607da090e1eca9b46929b79c95f7bd90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 4.793
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 607da090e1eca9b46929b79c95f7bd90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 607da090e1eca9b46929b79c95f7bd90, type: 3}
