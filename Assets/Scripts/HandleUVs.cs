@@ -24,6 +24,8 @@ public class HandleUVs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        mesh.uv = uvs;
         
 	}
 }
