@@ -204,7 +204,7 @@ public class GetVertices : MonoBehaviour {
         Ray ray = new Ray(transform.position, transform.TransformDirection(Vector3.back));
         //Debug.Log(ray);
 
-
+       
 
 
         if (Physics.Raycast(ray, out hit))

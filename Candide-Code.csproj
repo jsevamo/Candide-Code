@@ -309,6 +309,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GetVertices.cs" />
     <Compile Include="Assets\Scripts\HandleActionUnits.cs" />
+    <Compile Include="Assets\Scripts\HandleUVs.cs" />
     <Compile Include="Assets\Scripts\ParseXML.cs" />
   </ItemGroup>
   <ItemGroup>
