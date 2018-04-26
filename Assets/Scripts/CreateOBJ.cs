@@ -13,7 +13,9 @@ public class CreateOBJ : MonoBehaviour {
     int triangleCount;
     Vector3[] normals;
     int[] triangles;
+
     List<Vector3> trianglesIndexList = new List<Vector3>();
+    List<Vector2> uvsIndexList = new List<Vector2>();
         
 
 
@@ -30,13 +32,7 @@ public class CreateOBJ : MonoBehaviour {
 
 
         triangles = mesh.triangles;
-        /*Debug.Log(triangles[0]);
-        Debug.Log(triangles[1]);
-        Debug.Log(triangles[2]);
-        Debug.Log(triangles[3]);
-        Debug.Log(triangles[4]);
-        Debug.Log(triangles[5]);*/
-
+        
         int moveTriangle = 0;
         for (int i = 0; i < triangleCount; i++)
         {
@@ -44,7 +40,7 @@ public class CreateOBJ : MonoBehaviour {
             moveTriangle = moveTriangle + 2;
         }
         moveTriangle = 0;
-        //Debug.Log(trianglesIndexList[1]);
+        
 
 
 
@@ -62,9 +58,11 @@ public class CreateOBJ : MonoBehaviour {
 
         var sr = File.CreateText(filename);
 
-        
 
 
+        sr.WriteLine("# OBJ Exporter For Unity");
+        sr.WriteLine("# GIM Research Group. Universidad Militar Nueva Granada.");
+        sr.WriteLine("# 2018");
         sr.WriteLine("o Cosito");
         for(int i = 0; i < vertices.Length; i++)
         {
@@ -73,6 +71,7 @@ public class CreateOBJ : MonoBehaviour {
         for (int i = 0; i < uvs.Length; i++)
         {
             sr.WriteLine("vt {0} {1}", uvs[i].x, uvs[i].y);
+            uvsIndexList.Add(new Vector2(uvs[i].x, uvs[i].y));
         }
         
         for(int i = 0; i < normals.Length; i++)
@@ -80,7 +79,7 @@ public class CreateOBJ : MonoBehaviour {
             sr.WriteLine("vn {0} {1} {2}", normals[i].x, normals[i].y, normals[i].z);
         }
 
-        Debug.Log(trianglesIndexList[0]);
+        
 
 
         int whereIsIt = 0;
@@ -92,39 +91,28 @@ public class CreateOBJ : MonoBehaviour {
             {
                 if(whereIsIt == 0)
                 {
-                    sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].x + 1, 55, 55);
+                    sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].x + 1, trianglesIndexList[j].x+1, trianglesIndexList[j].x+1);
                     whereIsIt++;
                 }
                 else if(whereIsIt == 1)
                 {
-                    sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].y + 1, 55, 55);
+                    sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].y + 1, trianglesIndexList[j].y + 1, trianglesIndexList[j].y + 1);
                     whereIsIt++;
                 }
                 else if(whereIsIt == 2)
                 {
-                    sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].z + 1, 55, 55);
+                    sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].z + 1, trianglesIndexList[j].z + 1, trianglesIndexList[j].z + 1);
                     whereIsIt++;
                 }
             }
 
             whereIsIt = 0;
-
-            //sr.Write(" {0}/{1}/{2} ", trianglesIndexList[j].x + 1, trianglesIndexList[j].y + 1, trianglesIndexList[j].z + 1);
-
             sr.WriteLine(" ");
         }
-
-        
-
-        
 
 
 
         sr.Close();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
