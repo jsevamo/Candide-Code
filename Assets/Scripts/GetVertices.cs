@@ -9,7 +9,6 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
-using System.IO;
 using UnityEngine.UI;
 
 /**
@@ -54,9 +53,6 @@ public class UnityVertexMatch
 public class GetVertices : MonoBehaviour {
 
 
-
-    int choose = 0;
-
     //public Text textoPrueba;
 
     [Range(0, 1)]
@@ -83,7 +79,6 @@ public class GetVertices : MonoBehaviour {
 
     public string AuName;
 
-    Vector3 destination = new Vector3(0f, 0f, 0);
 
     /**
     * This is the array of vertices that unity saves with it's built in GetComponent<MeshFilter>().mesh.vertices function.
@@ -98,7 +93,6 @@ public class GetVertices : MonoBehaviour {
     Mesh mesh;
     //ArrayList ogVertices = new ArrayList();
     List<Vector3> ogVertices = new List<Vector3>();
-    List<int> ogVerticesID = new List<int>();
 
 
     /**
@@ -162,13 +156,6 @@ public class GetVertices : MonoBehaviour {
             ogVertices.Add(copyCoordinate(v));
 
         }
-
-        
-
-        GameObject gameController = GameObject.Find("GameController");
-        
-
-        
 
 
 
@@ -300,7 +287,7 @@ public class GetVertices : MonoBehaviour {
 
     public void fixTransform()
     {
-        Vector3 origin = new Vector3(0, 0, 0);
+        
 
         Matrix4x4 candideMatrix;
         candideMatrix = transform.localToWorldMatrix;

@@ -148,8 +148,7 @@ public class ParseXML {
         var doc = XDocument.Parse(txtXmlAsset.text);
 
         var allDict = doc.Element("document").Elements("Au");
-        List<Dictionary<string, string>> allTextDic = new List<Dictionary<string, string>>();
-
+        
         foreach (var oneDict in allDict)
         {
             var nameOfAus = oneDict.Elements("Name");

@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChangeNormal.cs" />
      <Compile Include="Assets\Scripts\CreateOBJ.cs" />
+     <Compile Include="Assets\Scripts\CreateOBJCandide.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GetVertices.cs" />
      <Compile Include="Assets\Scripts\HandleActionUnits.cs" />

@@ -7,7 +7,7 @@ using UnityEngine;
 public class HandleUVs : MonoBehaviour {
 
     Mesh mesh;
-    Vector3[] vertices;
+	Vector3[] vertices;
     public Vector2[] uvs;
 
     
