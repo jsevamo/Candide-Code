@@ -36,9 +36,5 @@ public class CreateOBJCandide : MonoBehaviour {
 		sr.Close();
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

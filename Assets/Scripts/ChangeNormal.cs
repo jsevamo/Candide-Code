@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChangeNormal : MonoBehaviour {
 
-    public Texture m_MainTexture, m_Normal, m_Metal;
     Renderer m_Renderer;
     Texture tex;
     Texture tex2;
