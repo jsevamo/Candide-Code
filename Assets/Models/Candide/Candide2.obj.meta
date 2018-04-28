@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: fdfe55b68904369499077ff111feb005
-timeCreated: 1521041649
+guid: 757f730051af84133ad5634c1317d7ef
+timeCreated: 1524934836
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: default
     400000: //RootNode
-    2100000: Basic
-    2100002: Highlights
-    2100004: Eyes
-    4300000: Candide.002
-    9500000: //RootNode
-    13700000: //RootNode
+    400002: default
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
